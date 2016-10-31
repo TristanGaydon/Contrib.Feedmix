@@ -18,7 +18,7 @@
                 <tr>
                     <th scope="col"><input type="checkbox" class="check-all" /></th>
                     <th scope="col">@T("Name")</th>
-                    <th scope="col">@T("URL")</th>
+                    <th scope="col">@T("Path")</th>
                     <th scope="col">@T("Actions")</th>
                 </tr>
             </thead>
@@ -26,11 +26,11 @@
             {
                 <tr>
                     <td></td>
-                    <td>@Html.ActionLink(feed.Feed.Title, "Edit", new { feed.Feed.Id })</td>
-                    <td></td>
+                    <td>@Html.ActionLink(feed.FeedMix.Title, "Edit", new {feed.FeedMix.Id})</td>
+                    <td>@Html.ActionLink(feed.FeedMix.Path, "Index", "Feed", new { area = "", id = feed.FeedMix.Path }, null)</td>
                     <td>
-                        @Html.ActionLink(T("Edit").ToString(), "Edit", new { feed.Feed.Id }) |
-                        @Html.ActionLink(T("Delete").ToString(), "Delete", new { feed.Feed.Id }, new { itemprop = "RemoveUrl UnsafeUrl" })
+                        @Html.ActionLink(T("Edit").ToString(), "Edit", new { feed.FeedMix.Id }) |
+                        @Html.ActionLink(T("Delete").ToString(), "Delete", new { feed.FeedMix.Id }, new { itemprop = "RemoveUrl UnsafeUrl" })
                     </td>
                 </tr>
                 userIndex++;

@@ -1,8 +1,13 @@
 ﻿@model DeftIndustries.FeedMix.ViewModels.FeedAddFeedViewModel
 <fieldset>
-    @Html.LabelFor(m => m.URL, T("URL"))
-    @Html.TextBoxFor(m => m.URL, new { @class = "textMedium" })
-    @Html.ValidationMessageFor(m => m.URL, "*")
+    @Html.LabelFor(m => m.FeedUrl, T("Feed Url"))
+    @Html.TextBoxFor(m => m.FeedUrl, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(m => m.FeedUrl, "*")
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.WebsiteUrl, T("Website Url"))
+    @Html.TextBoxFor(m => m.WebsiteUrl, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(m => m.WebsiteUrl, "*")
 </fieldset>
 <fieldset>
     @Html.LabelFor(m => m.Title, T("Title"))

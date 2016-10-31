@@ -1,13 +1,18 @@
-using System.Collections.Generic;
-using System.ServiceModel.Syndication;
-using DeftIndustries.FeedMix.Models;
-using Orchard.ContentManagement;
+namespace Orchard.Tags.Services
+{
+    using System.ServiceModel.Syndication;
+    using DeftIndustries.FeedMix.Models;
+    using ContentManagement;
+    using System;
 
-namespace Orchard.Tags.Services {
-    public interface IFeedService : IDependency {
+    public interface IFeedService : IDependency
+    {
 
-        void CreateFeed(FeedRecord feedRecord);
+        void CreateFeed(FeedPartRecord feedPartRecord);
+        FeedPartRecord GetFeed(int feedRecordId);
         void DeleteFeed(int id);
         SyndicationFeed GetFeedMix(string friendlyFeedName);
+        IContentQuery<FeedPart, FeedPartRecord> GetFeedsForFeedMix(int feedMixId);
+        DateTime? GetLastPostDate(string url);
     }
 }

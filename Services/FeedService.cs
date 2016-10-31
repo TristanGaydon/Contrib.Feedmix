@@ -4,7 +4,6 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Xml;
 using DeftIndustries.FeedMix.Models;
-using JetBrains.Annotations;
 using Orchard;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
@@ -20,15 +19,15 @@ namespace DeftIndustries.FeedMix.Services
 {
     using System.Net;
     using System.Xml.Linq;
+    using NHibernate.Hql.Ast.ANTLR.Util;
 
-    [UsedImplicitly]
     public class FeedService : IFeedService
     {
-        private readonly IRepository<FeedRecord> _feedRepository;
+        private readonly IRepository<FeedPartRecord> _feedRepository;
         private readonly INotifier _notifier;
         private readonly IOrchardServices _orchardServices;
 
-        public FeedService(IRepository<FeedRecord> feedRepository,
+        public FeedService(IRepository<FeedPartRecord> feedRepository,
                           INotifier notifier,
                           IOrchardServices orchardServices)
         {
@@ -43,9 +42,21 @@ namespace DeftIndustries.FeedMix.Services
         public Localizer T { get; set; }
 
 
-        public void CreateFeed(FeedRecord feedRecord)
+        public void CreateFeed(FeedPartRecord feedPartRecord)
         {
-            _feedRepository.Create(feedRecord);
+            _feedRepository.Create(feedPartRecord);
+        }
+
+        public IContentQuery<FeedPart, FeedPartRecord> GetFeedsForFeedMix(int feedMixId)
+        {
+            return _orchardServices.ContentManager
+                      .Query<FeedPart, FeedPartRecord>()
+                      .Where(fpr => fpr.FeedMixPartRecord.Id == feedMixId);
+        }
+
+        public FeedPartRecord GetFeed(int feedRecordId)
+        {
+            return _feedRepository.Get(feedRecordId);
         }
 
         public void DeleteFeed(int id) {
@@ -75,21 +86,47 @@ namespace DeftIndustries.FeedMix.Services
             return false;
         }
 
+        public DateTime? GetLastPostDate(string url)
+        {
+            try
+            {
+                Uri feedUri = new Uri(url);
+                SyndicationFeed syndicationFeed;
+
+                var request = (HttpWebRequest) WebRequest.Create(feedUri);
+                request.Accept = "application/rss+xml, application/atom+xml, text/xml */*;q=0.1";
+                using (var response = request.GetResponse())
+                using (var responseStream = response.GetResponseStream())
+                using (var reader = XmlReader.Create(responseStream))
+                {
+                    syndicationFeed = SyndicationFeed.Load(reader);
+                    var posts = syndicationFeed.Items.OrderByDescending(p => p.PublishDate);
+                    var lastPost = posts.FirstOrDefault();
+
+                    return lastPost?.PublishDate.LocalDateTime;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public SyndicationFeed GetFeedMix(string friendlyFeedName)
         {
             SyndicationFeed mainFeed = new SyndicationFeed();
 
 
-            FeedPart feedMix = this.GetRssFeeds(friendlyFeedName);
+            FeedMixPart feedMixMix = this.GetRssFeeds(friendlyFeedName);
 
-            if(feedMix == null)
+            if(feedMixMix == null)
                 return mainFeed;
 
-            foreach (var feed in feedMix.Feeds)
+            foreach (var feed in feedMixMix.Feeds)
             {
                 try
                 {
-                    Uri feedUri = new Uri(feed.URL);
+                    Uri feedUri = new Uri(feed.FeedUrl);
                     SyndicationFeed syndicationFeed;
 
                     var request = (HttpWebRequest)WebRequest.Create(feedUri);
@@ -101,18 +138,16 @@ namespace DeftIndustries.FeedMix.Services
                         syndicationFeed = SyndicationFeed.Load(reader);
                         syndicationFeed.Id = feed.Title;
 
+                        
                         foreach (var item in syndicationFeed.Items)
                         {
                             const string dc = "http://purl.org/dc/elements/1.1/";
                             
                             var creator = item.ElementExtensions.Where(p => p.OuterName == "creator").FirstOrDefault();
 
-                            if (creator == null && item.Authors.Count == 0)
+                            if (creator == null)
                             {
-                                foreach (SyndicationPerson person in syndicationFeed.Authors)
-                                {
-                                    item.Authors.Add(person);
-                                }
+                                item.ElementExtensions.Add(new SyndicationElementExtension("creator", "http://purl.org/dc/elements/1.1/", feed.Author));
                             }
 
                             if (creator != null && item.Authors.Count == 0)
@@ -141,15 +176,15 @@ namespace DeftIndustries.FeedMix.Services
                     
                 }
             }
-            mainFeed.Title = new TextSyndicationContent(feedMix.Title);
+            mainFeed.Title = new TextSyndicationContent(feedMixMix.Title);
             return mainFeed;
         }
 
-        private FeedPart GetRssFeeds(string friendlyFeedName) 
+        private FeedMixPart GetRssFeeds(string friendlyFeedName) 
         {
            return _orchardServices.ContentManager
-                .Query<FeedPart, FeedPartRecord>()
-                .Where(f => f.URL == friendlyFeedName)
+                .Query<FeedMixPart, FeedMixPartRecord>()
+                .Where(f => f.Path == friendlyFeedName)
                 .List()
                 .FirstOrDefault();
         }

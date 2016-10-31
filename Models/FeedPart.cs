@@ -1,28 +1,41 @@
-﻿using System.Collections.Generic;
-using Orchard.ContentManagement;
-using Orchard.Security;
-using System.Linq;
+﻿namespace DeftIndustries.FeedMix.Models
+{
+    using System;
+    using Orchard.ContentManagement;
+    using Orchard.Tags.Services;
 
-namespace DeftIndustries.FeedMix.Models {
-    public sealed class FeedPart : ContentPart<FeedPartRecord> {
+    public class FeedPart : ContentPart<FeedPartRecord>
+    {
+        private IFeedService _feedService;
+        
+        public string FeedUrl
+        {
+            get { return Record.FeedUrl; }
+            set { Record.FeedUrl = value; }
+        }
+
+        public string WebsiteUrl
+        {
+            get { return Record.WebsiteUrl; }
+            set { Record.WebsiteUrl = value; }
+        }
+
         public string Title
         {
             get { return Record.Title; }
             set { Record.Title = value; }
         }
 
-        public string Description
+        public string Author
         {
-            get { return Record.About; }
-            set { Record.About = value; }
+            get { return Record.Author; }
+            set { Record.Author = value; }
         }
 
-        public string Path
+        public virtual FeedMixPartRecord FeedMixPartRecord
         {
-            get { return Record.URL; }
-            set { Record.URL = value; }
+            get { return Record.FeedMixPartRecord; }
+            set { Record.FeedMixPartRecord = value; }
         }
-
-        public IEnumerable<FeedRecord> Feeds { get { return Record.Feeds.OrderBy(f => f.Author); } }
     }
 }

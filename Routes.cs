@@ -8,15 +8,16 @@ namespace Orchard.Core.Feeds.Rss {
         public IEnumerable<RouteDescriptor> GetRoutes() {
             return new[] {
                              new RouteDescriptor {
-                                                     Priority = -5,
+                                                     Priority = 20,
                                                      Route = new Route(
-                                                         "DeftIndustries.feedmix/feed/{friendlyFeedName}",
+                                                         "DeftIndustries.feedmix/feed/{id}",
                                                          new RouteValueDictionary {
                                                                                       {"area", "DeftIndustries.feedmix"},
                                                                                       {"controller", "Feed"},
-                                                                                      {"action", "Index"}
+                                                                                      {"action", "Index"},
+                                                                                      {"id", UrlParameter.Optional }
                                                                                   },
-                                                         new RouteValueDictionary (),
+                                                         new RouteValueDictionary(),
                                                          new RouteValueDictionary {
                                                                                       {"area", "DeftIndustries.feedmix"}
                                                                                   },

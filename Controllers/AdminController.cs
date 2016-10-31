@@ -35,15 +35,13 @@ namespace DeftIndustries.FeedMix.Controllers
         [HttpGet]
         public ActionResult Index() {
 
-            var feeds = Services.ContentManager
-                .Query<FeedPart, FeedPartRecord>();
+            var feeds = Services.ContentManager.Query<FeedMixPart, FeedMixPartRecord>();
 
-            var results = feeds.Slice(0, 10)
-                .ToList();
+            var results = feeds.Slice(0, 10).ToList();
 
             var model = new FeedsIndexViewModel {
                 Feeds = results
-                    .Select(x => new FeedEntry { Feed = x.Record })
+                    .Select(x => new FeedEntry { FeedMix = x })
                     .ToList()
             };
             return View(model);
@@ -51,8 +49,8 @@ namespace DeftIndustries.FeedMix.Controllers
 
         public ActionResult Create()
         {
-            var user = Services.ContentManager.New<FeedPart>("Feed");
-            var editor = Shape.EditorTemplate(TemplateName: "Parts/Feed.Create", Model: new FeedCreateViewModel(), Prefix: null);
+            var user = Services.ContentManager.New<FeedMixPart>("FeedMix");
+            var editor = Shape.EditorTemplate(TemplateName: "Parts/FeedMix.Create", Model: new FeedCreateViewModel(), Prefix: null);
             editor.Metadata.Position = "2";
             dynamic model = Services.ContentManager.BuildEditor(user);
             model.Content.Add(editor);
@@ -64,7 +62,7 @@ namespace DeftIndustries.FeedMix.Controllers
         [HttpPost, ActionName("Create")]
         public ActionResult CreatePOST(FeedCreateViewModel createModel)
         {
-            var feedPart = Services.ContentManager.New<FeedPart>("Feed");
+            var feedPart = Services.ContentManager.New<FeedMixPart>("FeedMix");
 
             dynamic model = Services.ContentManager.UpdateEditor(feedPart, this);
 
@@ -81,19 +79,26 @@ namespace DeftIndustries.FeedMix.Controllers
             }
 
             feedPart.Title = createModel.Title;
+            feedPart.Description = createModel.Description;
+            feedPart.Path = createModel.Path;
             Services.ContentManager.Create(feedPart);
 
             Services.Notifier.Information(T("Feed mix created. Now add some new feeds"));
             return RedirectToAction("Edit", "Admin", new { feedPart.Id });
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, FeedEditOptions options)
         {
             if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
-            var feed = Services.ContentManager.Get<FeedPart>(id);
-            var editor = Shape.EditorTemplate(TemplateName: "Parts/Feed.Edit", Model: new FeedEditViewModel { Feed = feed }, Prefix: null);
+            var feed = Services.ContentManager.Get<FeedMixPart>(id);
+            
+            // default options
+            if (options == null)
+                options = new FeedEditOptions();
+
+            var editor = Shape.EditorTemplate(TemplateName: "Parts/FeedMix.Edit", Model: new FeedEditViewModel(_feedService) { Feed = feed, Options = options }, Prefix: null);
             editor.Metadata.Position = "2";
             dynamic model = Services.ContentManager.BuildEditor(feed);
             model.Content.Add(editor);
@@ -102,9 +107,36 @@ namespace DeftIndustries.FeedMix.Controllers
             return View((object)model);
         }
 
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditPOST(int id, string title, string description, string path)
+        {
+            var feedPart = Services.ContentManager.Get<FeedMixPart>(id);
+
+            dynamic model = Services.ContentManager.UpdateEditor(feedPart, this);
+
+            if (!ModelState.IsValid)
+            {
+                Services.TransactionManager.Cancel();
+
+                //var editor = Shape.EditorTemplate(TemplateName: "Parts/User.Create", Model: editModel, Prefix: null);
+                // editor.Metadata.Position = "2";
+                // model.Content.Add(editor);
+
+                // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
+                return View((object)model);
+            }
+
+            feedPart.Title = title;
+            feedPart.Description = description;
+            feedPart.Path = path;
+
+            Services.Notifier.Information(T("Feed mix updated."));
+            return RedirectToAction("Index", "Admin", new { feedPart.Id });
+        }
+
         public ActionResult Delete(int id)
         {
-            var feed = Services.ContentManager.Get<FeedPart>(id);
+            var feed = Services.ContentManager.Get<FeedMixPart>(id);
             Services.ContentManager.Remove(feed.ContentItem);
 
             return RedirectToAction("Index");
@@ -115,8 +147,8 @@ namespace DeftIndustries.FeedMix.Controllers
             if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
                 return new HttpUnauthorizedResult();
 
-            var feed = Services.ContentManager.Get<FeedPart>(id);
-            var editor = Shape.EditorTemplate(TemplateName: "Parts/Feed.AddFeed", Model: new FeedAddFeedViewModel (), Prefix: null);
+            var feed = Services.ContentManager.Get<FeedMixPart>(id);
+            var editor = Shape.EditorTemplate(TemplateName: "Parts/FeedMix.AddFeed", Model: new FeedAddFeedViewModel (), Prefix: null);
             editor.Metadata.Position = "2";
             dynamic model = Services.ContentManager.BuildEditor(feed);
             model.Content.Add(editor);
@@ -135,34 +167,62 @@ namespace DeftIndustries.FeedMix.Controllers
                 return RedirectToAction("AddFeed", "Admin", new { id });
             }
 
-            var feed = Services.ContentManager.Get<FeedPart>(id);
-                var feedRecord = new FeedRecord {
-                    FeedPartRecord = feed.Record,
-                    URL = feedAddViewModel.URL,
-                    Title = feedAddViewModel.Title,
-                    Author = feedAddViewModel.Author
-                };
-            
-            _feedService.CreateFeed(feedRecord);
+            var feed = Services.ContentManager.Get<FeedMixPart>(id);
+            var feedPart = Services.ContentManager.New<FeedPart>("Feed");
+            feedPart.FeedUrl = feedAddViewModel.FeedUrl;
+            feedPart.WebsiteUrl = feedAddViewModel.WebsiteUrl;
+            feedPart.Title = feedAddViewModel.Title;
+            feedPart.Author = feedAddViewModel.Author;
+            feedPart.FeedMixPartRecord = feed.Record;
+            Services.ContentManager.Create(feedPart);
 
             Services.Notifier.Information(T("Feed added"));
             return RedirectToAction("Edit", "Admin", new { id });
+        }
 
-            /*
-            dynamic model = Services.ContentManager.UpdateEditor(user, this);
+        public ActionResult EditFeed(int id)
+        {
+            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Not authorized to manage users")))
+                return new HttpUnauthorizedResult();
+
+
+            var feedPart = Services.ContentManager.Get<FeedPart>(id);
+            var editor = Shape.EditorTemplate(TemplateName: "Parts/Feed.EditFeed", Model: new FeedEditFeedViewModel { Feed = feedPart }, Prefix: null);
+            editor.Metadata.Position = "2";
+            
+            dynamic model = Services.ContentManager.BuildEditor(feedPart);
+            model.Content.Add(editor);
+
+            // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
+            return View((object)model);
+        }
+
+        [HttpPost, ActionName("EditFeed")]
+        public ActionResult EditFeedPOST(int id, string feedurl, string websiteurl, string title, string author)
+        {
+            var feedPart = Services.ContentManager.Get<FeedPart>(id);
+
+            dynamic model = Services.ContentManager.UpdateEditor(feedPart, this);
 
             if (!ModelState.IsValid)
             {
                 Services.TransactionManager.Cancel();
 
-                var editor = Shape.EditorTemplate(TemplateName: "Parts/User.Create", Model: createModel, Prefix: null);
-                editor.Metadata.Position = "2";
-                model.Content.Add(editor);
+                //var editor = Shape.EditorTemplate(TemplateName: "Parts/User.Create", Model: editModel, Prefix: null);
+                // editor.Metadata.Position = "2";
+                // model.Content.Add(editor);
 
                 // Casting to avoid invalid (under medium trust) reflection over the protected View method and force a static invocation.
                 return View((object)model);
             }
-            */
+
+            feedPart.FeedUrl = feedurl;
+            feedPart.WebsiteUrl = websiteurl;
+            feedPart.Title = title;
+            feedPart.Author = author;
+           
+            Services.Notifier.Information(T("Feed updated."));
+            return RedirectToAction("Edit", "Admin", new { feedPart.FeedMixPartRecord.Id });
         }
 
         public ActionResult DeleteFeed(int id, int feedId) {

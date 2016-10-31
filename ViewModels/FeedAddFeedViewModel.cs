@@ -1,11 +1,19 @@
-using System.ComponentModel.DataAnnotations;
+namespace DeftIndustries.FeedMix.ViewModels
+{
+    using System.ComponentModel.DataAnnotations;
 
-namespace DeftIndustries.FeedMix.ViewModels {
-    public class FeedAddFeedViewModel  {
+    public class FeedAddFeedViewModel
+    {
         [Required]
-        public string URL { get; set; }
+        public string FeedUrl { get; set; }
+
+        [Required]
+        public string WebsiteUrl { get; set; }
+
+        [Required]
         public string Author { get; set; }
-        public string Title { get; set; }
-        
+
+        [Required]
+        public string Title { get; set; }    
     }
 }

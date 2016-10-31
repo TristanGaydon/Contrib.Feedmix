@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
@@ -31,9 +32,9 @@ namespace DeftIndustries.FeedMix.Controllers
         public IOrchardServices Services { get; set; }
         public Localizer T { get; set; }
 
-        public RssActionResult Index(string friendlyFeedName) 
-        {
-            var mainFeed = _feedService.GetFeedMix(friendlyFeedName);
+        public RssActionResult Index(string id) {
+            // Debugger.Launch();
+            var mainFeed = _feedService.GetFeedMix(id);
             return new RssActionResult() { Feed = mainFeed };
         }
     }

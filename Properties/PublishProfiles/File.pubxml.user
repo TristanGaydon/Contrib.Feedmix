@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Code\Feedmix Publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include=".git/config">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/description">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/HEAD">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/hooks/applypatch-msg.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/hooks/commit-msg.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/hooks/post-update.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/hooks/pre-applypatch.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/hooks/pre-commit.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/hooks/pre-push.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/hooks/pre-rebase.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/hooks/prepare-commit-msg.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/hooks/update.sample">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/index">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/info/exclude">
+      <publishTime>10/24/2016 20:28:42</publishTime>
+    </File>
+    <File Include=".git/logs/HEAD">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/logs/refs/heads/master">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/logs/refs/remotes/origin/HEAD">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/07/831c7c53cfe23ffb2bf5c889f16f7de33c4095">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/0c/1529bdc69092f2ecc29918182a98174892f0b2">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/0c/f424ecba8b3f89d01dad5eb42d0003b12585af">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/0f/9ca81ce33af84e919653bc7b8f64b0c922b676">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/1c/3fb44a69b0d6d121cd0ad748eb8f900ac29798">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/1d/fa8d28fe78835585e65585a7a4e06c326c82c5">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/1e/66c82abda444cd72c064c62a38ed216254b3d5">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/20/653339d32b14b4d888182c57856e139e5ee11a">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/20/6c331767b005ff17c4f145e99b66daaa7eeadb">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/23/4f45c4dc0019eec47c70aacf648a820fc1c24a">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/29/604e1a0031dbf5dc7a8e030be6c5383933b18d">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/29/7b299dd68e1927a39145ab232cb623349d0ca6">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/2b/da0db9de4097db65b7a310f59eed9ff06f4b82">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/2b/db5eb6d607f79338116f2fed23379e0c2bc52a">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/2e/e8ff7a577d6ce6a392eb5533ea4e69c09310b1">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/30/e354b6c3ff1017316bd8b1e3ef4fef05a68283">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/34/457cb08dc383df2554afe188f14412864d1d90">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/36/66956912a0b681c89b3d3f58b3fb65fd797624">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/36/7d253b9d4556c418645418d44fec5e47cc618d">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/37/a38e81410c2d1a519c2614ab9cb99aac5f6776">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/37/edc46d9de72639af1c8133f058f022b1f8aba8">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/38/383191e56e1fc110325e8d95e8ca3d7f353513">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/39/d068cb412d2470428066436bb4d17ef11b8b70">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/3c/ac26a9303c17f3c45828e2a89b89d335be6b4e">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/3d/ecf044e0ff8248c831150bbe0a07e75d06cd22">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/4d/4152a4f8a7f51f6a2014d4a2e1f27a17b4b505">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/54/b4f146f9d8b28f03ea2d21a2e14aa7f390cae5">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/58/23f5e34779178287acc532f62d476f7a78c622">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/5a/5b29e4ce313d8d78022ea0b942b93fbdcdf42a">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/5e/ce38394315b6498a433539d2c46abda26a6957">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/5f/e7465b7d719b041bbb34ce2b2ee520903f4ebe">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/60/54b641e006d2b61539d623092a6ab582dc94bd">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/62/2a825b0eba9bfa31fff1733d42f3839370fc7f">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/64/de291dfa61a29efd6a35f48c6738cc3b7ab2cd">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/65/ead53477ab93107f69cffa247b266b5cd4d3e8">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/6c/eb0ca150762d83102f0a4b5669bf73ed4f8fad">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/6e/8ebec3672b6e03731344aa51539584fbf28a1d">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/73/88605b73bc3dc0e2be835c6988c64879911768">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/73/ba6831d6b45b49bcd6f474766338f1c7c40554">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/7c/9a9f88cc936f0db6fa40591d9f941f4c15f7de">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/82/39f41d9b718334b35146c45d7eba3a2137080f">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/82/88257cacd837daf0a39b307d2083c65c8137a0">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/85/6043191822d7a60a283188233764a8fcfda281">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/88/ddc0ef02281ece116e46b05e4e4fad0aad58ec">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/89/af19f73a6f020b98d1370597aba6818ac0c31f">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/8c/6b5c7450789d4c443e11d978ab07f5be5bc677">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/8e/66f94c2c8117e8ee860288df17e85cbf89e73a">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/92/d557a0faaa3b4f640bd1259ca5365dd5c9948d">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/98/d7a7cc46690189cabfec107294c4f2464db86b">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/9a/6dfb07638e2dd3ea037e068d20d764280b7cff">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/9a/b892a4694350c63a854c80bce0f0caa6b1909b">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/9b/ee14008c4e318e48765dd8e073bb59912ce84c">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/9c/23d94504f23816115e655464eb0f113c695e2c">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/9d/6b5fcdbb84a55dbb9899c8dbe8084a2b6f6d7a">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/a0/f9a82fdc6c3402bf35f68add01b2744af59217">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/a2/8af37a421d5a8f34618511ad8b88ee33e93dc8">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/a5/24d9d3839eba4f1cc65e46cf569372dd63409e">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/a8/0d677514b5a2212bdf85e70cd503f1c1e4c907">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/aa/64b4fc8fbb327dda0f9760852f71dc4bff663d">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/aa/9d48e95890c0bd564c53e128550baf38734630">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ab/9e3b669ec3e955e1d28e82b19bc7aeb654ef41">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ac/5813f8f997950cf7e36c403ba2a93e35d955ab">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ac/647e6d2a6c47aa80737bbf07a1ae1b10d529f7">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ad/e4a8cf63fe0a7303de74eb961d4845ca4467a1">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/ad/fe92907eced442bbc863d95b7d2a06b7d2ddff">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/b0/201e22fcd338182e0a6a42768231d4fc89b23f">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/c3/dc59c66f09782d5350d526618b35b541f841f7">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/c9/1bfde83ac1d5de6d3487a6c3a0256d19b8af60">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ca/90fc9dfe89d2ba90158884f3e58462480e2623">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/ca/b2ef686a6f983de237f05c896981c987c55fb5">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/d2/52b8abf4b25c0e1fbea19a713223bbe1cc590c">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/d2/eba6f5d483e01ab6ecd94819e3d81272734acb">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/d3/367b4b3dda3951b877c8c292dd056d2e67db4c">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/d3/985892a77bee1ff929588ce9e5fef8bb134ded">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/d7/a85aceb2fe3a7e55de2c4ebd0c247fd697de77">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/d9/fffc377326d8f0f9095a1f557d4836aea14cfa">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/dc/b0eaeda9b0a77e1221141f63a06cf7180dcc71">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/dc/d2c10f8e2db319804fbccf3f0da887ac98b08b">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/df/65818c71ef03a4f06a2dd6aaa2ad13fbcf89ca">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/e1/08091d0279e7f5f8e53fb3b37cbe4ab2e223bc">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/e1/5c84adbb3f263cf93bbccc8c06cc0ad2203ae0">
+      <publishTime>10/24/2016 20:28:45</publishTime>
+    </File>
+    <File Include=".git/objects/e6/304490382889a7a4ff471acfffe0411b05253a">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/e7/9a2cdac766e7e85fafb8c36e4288d96e8f9edc">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/e9/54a79b50fd38ed6f6a5ecb5a3d69dfd0f1a8ef">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ed/464d05c3e3a6b0e8714f88ba37ad5cae4d5f1a">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ed/634c292272da04b06724f474ba3b55d6aa7fe4">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ed/65cf83ae09ab36f3bbd726a689e056c79e9c2b">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/f1/ced7e2883ff14c2a65b49f69c8943c309eb968">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/f3/ccbe210e92d67ae267d8182d3275e7ca5cf725">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/f9/21f2d9a1fab5460f752dbd9bbf8ba5a3d857e4">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/f9/821e3a4227e2da2baeeed42bde14d81999020b">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/f9/e129ffcc13fae4ef013312563c255cc662ab1b">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/fa/47500a2135b84d7575416d3130f4e644756ef9">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/objects/fc/b5ede1f11282636cd2aa2593b001a65773d3af">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/objects/ff/1c8914f5ad4b31060c04bd8fbe88d2cab52263">
+      <publishTime>10/24/2016 20:28:44</publishTime>
+    </File>
+    <File Include=".git/packed-refs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/refs/heads/master">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/refs/remotes/origin/HEAD">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".git/smartgit.config">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include=".vs/DeftIndustries.FeedMix/v14/.suo">
+      <publishTime>10/24/2016 20:30:17</publishTime>
+    </File>
+    <File Include="AdminMenu.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/Autofac.Configuration.dll">
+      <publishTime>07/09/2014 16:03:00</publishTime>
+    </File>
+    <File Include="bin/Autofac.Configuration.pdb">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/Autofac.Configuration.xml">
+      <publishTime>07/09/2014 16:03:00</publishTime>
+    </File>
+    <File Include="bin/Autofac.dll">
+      <publishTime>08/12/2014 13:20:26</publishTime>
+    </File>
+    <File Include="bin/Autofac.pdb">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/Autofac.xml">
+      <publishTime>08/12/2014 13:20:26</publishTime>
+    </File>
+    <File Include="bin/Castle.Core.dll">
+      <publishTime>09/10/2014 13:00:42</publishTime>
+    </File>
+    <File Include="bin/Castle.Core.xml">
+      <publishTime>09/10/2014 13:00:42</publishTime>
+    </File>
+    <File Include="bin/Castle.DynamicProxy2.dll">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/Castle.DynamicProxy2.xml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/DeftIndustries.FeedMix.dll">
+      <publishTime>10/24/2016 20:38:46</publishTime>
+    </File>
+    <File Include="bin/DeftIndustries.FeedMix.dll.config">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/DeftIndustries.FeedMix.pdb">
+      <publishTime>10/24/2016 20:38:46</publishTime>
+    </File>
+    <File Include="bin/FluentNHibernate.dll">
+      <publishTime>12/13/2013 00:57:42</publishTime>
+    </File>
+    <File Include="bin/FluentNHibernate.xml">
+      <publishTime>12/13/2013 00:57:42</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.dll">
+      <publishTime>02/10/2013 10:44:52</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.xml">
+      <publishTime>02/10/2013 10:44:52</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>11/23/2013 10:04:16</publishTime>
+    </File>
+    <File Include="bin/log4net.xml">
+      <publishTime>11/23/2013 10:04:16</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>08/19/2014 14:42:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.xml">
+      <publishTime>08/19/2014 14:42:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/22/2016 11:25:08</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.xml">
+      <publishTime>01/22/2016 11:25:08</publishTime>
+    </File>
+    <File Include="bin/NHibernate.dll">
+      <publishTime>09/21/2014 14:03:30</publishTime>
+    </File>
+    <File Include="bin/NHibernate.Linq.dll">
+      <publishTime>05/11/2016 12:23:08</publishTime>
+    </File>
+    <File Include="bin/NHibernate.SqlAzure.dll">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/NHibernate.SqlAzure.pdb">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/NHibernate.xml">
+      <publishTime>09/21/2014 14:03:30</publishTime>
+    </File>
+    <File Include="bin/Orchard.Core.dll">
+      <publishTime>10/24/2016 20:34:58</publishTime>
+    </File>
+    <File Include="bin/Orchard.Core.pdb">
+      <publishTime>10/24/2016 20:34:58</publishTime>
+    </File>
+    <File Include="bin/Orchard.Framework.dll">
+      <publishTime>10/24/2016 20:34:57</publishTime>
+    </File>
+    <File Include="bin/Orchard.Framework.pdb">
+      <publishTime>10/24/2016 20:34:57</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>01/22/2016 11:25:02</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/22/2016 11:25:02</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.xml">
+      <publishTime>01/22/2016 11:25:02</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.xml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/22/2016 11:25:02</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.xml">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.xml">
+      <publishTime>01/22/2016 11:25:02</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>09/25/2014 17:41:52</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.xml">
+      <publishTime>11/02/2015 01:02:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/22/2016 11:25:14</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.xml">
+      <publishTime>01/22/2016 11:25:14</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.xml">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.xml">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.xml">
+      <publishTime>01/22/2016 11:25:15</publishTime>
+    </File>
+    <File Include="bin/YamlDotNet.dll">
+      <publishTime>02/01/2016 16:47:24</publishTime>
+    </File>
+    <File Include="Controllers/AdminController.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Controllers/FeedController.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="DeftIndustries.FeedMix.csproj">
+      <publishTime>10/24/2016 20:38:29</publishTime>
+    </File>
+    <File Include="DeftIndustries.FeedMix.csproj.user">
+      <publishTime>10/24/2016 20:34:37</publishTime>
+    </File>
+    <File Include="Handlers/FeedPartHandler.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Migrations.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Models/FeedPart.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Models/FeedPartRecord.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Models/FeedRecord.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Module.txt">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Properties/AssemblyInfo.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Properties/PublishProfiles/File.pubxml">
+      <publishTime>10/24/2016 20:34:37</publishTime>
+    </File>
+    <File Include="Properties/PublishProfiles/File.pubxml.user">
+      <publishTime>10/24/2016 20:35:07</publishTime>
+    </File>
+    <File Include="README.md">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Routes.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="RssActionResult.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Scripts/Web.config">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Services/FeedService.cs">
+      <publishTime>10/24/2016 20:34:53</publishTime>
+    </File>
+    <File Include="Services/IFeedService.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Styles/images/error.png">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Styles/images/menu.users.png">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Styles/images/ok.png">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Styles/menu.feeds-admin.css">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Styles/Web.config">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="ViewModels/FeedAddFeedViewModel.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="ViewModels/FeedCreateViewModel.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="ViewModels/FeedEditViewModel.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="ViewModels/FeedsIndexViewModel.cs">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Views/Admin/AddFeed.cshtml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Views/Admin/Create.cshtml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Views/Admin/Edit.cshtml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Views/Admin/Index.cshtml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Views/EditorTemplates/Parts/Feed.AddFeed.cshtml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Views/EditorTemplates/Parts/Feed.Create.cshtml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Views/EditorTemplates/Parts/Feed.Edit.cshtml">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>10/24/2016 20:28:46</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/24/2016 20:32:21</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

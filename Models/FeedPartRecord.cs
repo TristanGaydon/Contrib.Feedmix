@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Orchard.ContentManagement.Records;
-using Orchard.Data.Conventions;
-
-namespace DeftIndustries.FeedMix.Models
+﻿namespace DeftIndustries.FeedMix.Models
 {
+    using Orchard.ContentManagement.Records;
+
     public class FeedPartRecord : ContentPartRecord
     {
+        public virtual string FeedUrl { get; set; }
+        public virtual string WebsiteUrl { get; set; }
         public virtual string Title { get; set; }
-        public virtual string About { get; set; }
-        public virtual string URL { get; set; }
-        [Aggregate]
-        public virtual IList<FeedRecord> Feeds { get; set; }
+        public virtual string Author { get; set; }
+
+        public virtual FeedMixPartRecord FeedMixPartRecord { get; set; } 
     }
 }

@@ -1,9 +1,11 @@
-﻿using DeftIndustries.FeedMix.Models;
-using Orchard.ContentManagement.Handlers;
-using Orchard.Data;
+﻿namespace DeftIndustries.FeedMix.Handlers
+{
+    using Models;
+    using Orchard.ContentManagement.Handlers;
+    using Orchard.Data;
 
-namespace DeftIndustries.FeedMix.Handlers {
-    public class FeedPartHandler : ContentHandler {
+    public class FeedPartHandler : ContentHandler
+    {
         public FeedPartHandler(IRepository<FeedPartRecord> repository)
         {
             Filters.Add(new ActivatingFilter<FeedPart>("Feed"));

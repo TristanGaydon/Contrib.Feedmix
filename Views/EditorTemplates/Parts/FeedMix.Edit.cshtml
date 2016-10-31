@@ -1,0 +1,58 @@
+﻿@using DeftIndustries.FeedMix.ViewModels
+@model DeftIndustries.FeedMix.ViewModels.FeedEditViewModel
+
+<fieldset>
+    @Html.LabelFor(m => m.Title, T("FeedMix Name"))
+    @Html.TextBoxFor(m => m.Title, new {@class = "textMedium"})
+    @Html.ValidationMessageFor(m => m.Title, "*")
+    @Html.LabelFor(m => m.Description, T("Description"))
+    @Html.TextBoxFor(m => m.Description, new {@class = "textMedium"})
+    @Html.ValidationMessageFor(m => m.Description, "*")
+    @Html.LabelFor(m => m.Path, T("Path"))
+    @Html.TextBoxFor(m => m.Path, new {@class = "textMedium"})
+    @Html.ValidationMessageFor(m => m.Path, "*")
+</fieldset>
+<div class="manage">@Html.ActionLink(T("Add a new feed").ToString(), "AddFeed", "Admin", new { id = Model.Id }, new { @class = "button primaryAction" })</div>
+<fieldset class="bulk-actions">
+    <label for="sortResults">@T("Sort by:")</label>
+    <select id="sortResults" name="@Html.NameOf(m => m.Options.Order)">
+        @Html.SelectOption(Model.Options.Order, FeedOrder.LastPost, T("Last Post").ToString())
+        @Html.SelectOption(Model.Options.Order, FeedOrder.Author, T("Author").ToString())
+    </select>
+    <div class="manage">@Html.ActionLink(T("Filter").ToString(), "Edit", "Admin", new { id = Model.Id }, new { @class = "button primaryAction" })</div>
+</fieldset>
+<fieldset>
+    <table class="items">
+        <thead>
+            <tr>
+                <th>Valid</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Url</th>
+                <th>Last Post</th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var feed in Model.Feeds)
+        {
+            <tr>
+                <td><img src="@Href("~/Modules/DeftIndustries.FeedMix/Styles/Images/ok.png")" height="10px" width="10px" /></td>
+                <td>@feed.Author</td>
+                <td><a href="@feed.WebsiteUrl">@feed.Title</a></td>
+                <td><a href="@feed.FeedUrl">@feed.FeedUrl</a></td>
+                @if (feed.LastPostDate.HasValue)
+                {
+                    <td>@feed.LastPostDate.Value.ToString("MM/dd/yyyy HH:mm")</td>
+                }
+                else
+                {
+                    <td>No posts</td>
+                }
+                <td>
+                    @Html.ActionLink(T("Edit").ToString(), "EditFeed", new { feed.Id }) |
+                    @Html.ActionLink(T("Delete").ToString(), "DeleteFeed", new { Id = Model.Id, feedId = feed.Id }, new { itemprop = "RemoveUrl UnsafeUrl" })
+                </td>
+            </tr>
+        }
+    </table>
+</fieldset>

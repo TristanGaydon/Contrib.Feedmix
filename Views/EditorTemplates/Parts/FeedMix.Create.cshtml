@@ -1,6 +1,6 @@
 ﻿@model DeftIndustries.FeedMix.ViewModels.FeedCreateViewModel
 <fieldset>
-    @Html.LabelFor(m => m.Title, T("Feed Name"))
+    @Html.LabelFor(m => m.Title, T("FeedMix Name"))
     @Html.TextBoxFor(m => m.Title, new { @class = "textMedium" })
     @Html.ValidationMessageFor(m => m.Title, "*")
 </fieldset>

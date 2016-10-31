@@ -6,23 +6,25 @@ namespace DeftIndustries.FeedMix {
     public class FeedsDataMigration : DataMigrationImpl {
 
         public int Create() {
-            SchemaBuilder.CreateTable("FeedPartRecord", 
+            SchemaBuilder.CreateTable("FeedMixPartRecord", 
                 table => table
                     .ContentPartRecord()
                     .Column<string>("Title", t => t.NotNull())
-                    .Column<string>("About")
-                    .Column<string>("URL")
+                    .Column<string>("Description")
+                    .Column<string>("Path")
                 );
 
-            SchemaBuilder.CreateTable("FeedRecord", t => t
-           .Column<int>("Id", column => column.PrimaryKey().Identity())
-           .Column<int>("FeedPartRecord_Id")
-           .Column<string>("URL")
+            SchemaBuilder.CreateTable("FeedPartRecord", t => t
+           .ContentPartRecord()
+           .Column<int>("FeedMixPartRecord_Id")
+           .Column<string>("WebsiteUrl")
+           .Column<string>("FeedUrl")
            .Column<string>("Title")
            .Column<string>("Author")
           );
 
-            ContentDefinitionManager.AlterTypeDefinition("Feed",alt => alt.WithPart("FeedPart"));
+           ContentDefinitionManager.AlterTypeDefinition("FeedMix",alt => alt.Creatable(false).WithPart("FeedMixPart"));
+           ContentDefinitionManager.AlterTypeDefinition("Feed", alt => alt.Creatable(false).WithPart("FeedPart"));
 
             return 1;
         }
