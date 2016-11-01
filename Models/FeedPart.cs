@@ -37,5 +37,16 @@
             get { return Record.FeedMixPartRecord; }
             set { Record.FeedMixPartRecord = value; }
         }
+
+        public string DisplayName
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(Record.Author))
+                    return Record.Author;
+
+                return Record.Title;
+            }
+        }
     }
 }

@@ -3,8 +3,9 @@ AntiForgery: enabled
 Author: The Orchard Team
 Website: http://orchardproject.net
 Version: 1.0
-OrchardVersion: 1.0
+OrchardVersion: 1.10
 Description: Description for the module
 Features:
     DeftIndustries.FeedMix:
         Description: Description for feature DeftIndustries.FeedMix.
+		Dependencies: Orchard.Widgets

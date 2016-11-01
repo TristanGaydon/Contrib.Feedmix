@@ -1,0 +1,23 @@
+﻿@{
+    Style.Include("collapsibleLists.css");
+    Script.Include("CollapsibleLists.js").AtHead();
+}
+<ul class="collapsibleList" style="position:relative; left: 20px;">
+    <li>
+        <div>
+            <img src="@Href("~/Modules/DeftIndustries.FeedMix/Styles/images/rss.gif")"/>
+            @Html.ActionLink((string)Model.FeedMix.Title, "Index", "Feed", new { area = "", id = (string)Model.FeedMix.Path }, new { @style = "position:relative; top: -4px;" })
+        </div>
+        <ul>
+            @foreach (var feed in Model.FeedMix.Feeds)
+            {
+                <li style="margin-left: 19px">
+                    <a style="position:relative; top: -4px;" href="@feed.WebsiteUrl">@feed.DisplayName</a>
+                </li>
+            }
+        </ul>
+    </li>
+</ul>
+<script>
+    CollapsibleLists.apply();
+</script>

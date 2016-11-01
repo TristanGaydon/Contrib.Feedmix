@@ -53,13 +53,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Orchard.Core, Version=1.10.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Orchard.Core">
       <HintPath>..\..\bin\Orchard.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Orchard.Framework, Version=1.10.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Orchard.Framework">
       <HintPath>..\..\bin\Orchard.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Orchard.Widgets">
+      <HintPath>..\Orchard.Widgets\bin\Orchard.Widgets.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -85,9 +86,15 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\CollapsibleLists.js" />
+    <Content Include="Styles\collapsibleLists.css" />
+    <Content Include="Styles\images\button-closed.png" />
+    <Content Include="Styles\images\button-open.png" />
+    <Content Include="Styles\images\button.png" />
     <Content Include="Styles\images\error.png" />
     <Content Include="Styles\images\menu.users.png" />
     <Content Include="Styles\images\ok.png" />
+    <Content Include="Styles\images\rss.gif" />
     <Content Include="Styles\menu.feeds-admin.css" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
@@ -100,11 +107,15 @@
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\FeedController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Drivers\FeedMixWidgetDriver.cs" />
+    <Compile Include="Handlers\FeedMixWidgetPartHandler.cs" />
     <Compile Include="Handlers\FeedPartHandler.cs" />
     <Compile Include="Handlers\FeedMixPartHandler.cs" />
     <Compile Include="Migrations.cs" />
     <Compile Include="Models\FeedMixPartRecord.cs" />
+    <Compile Include="Models\FeedMixWidgetPart.cs" />
     <Compile Include="Models\FeedPart.cs" />
+    <Compile Include="Models\FeedMixWidgetPartRecord.cs" />
     <Compile Include="Models\FeedPartRecord.cs" />
     <Compile Include="Models\FeedMixPart.cs" />
     <Compile Include="Routes.cs" />
@@ -113,6 +124,7 @@
     <Compile Include="Services\FeedService.cs" />
     <Compile Include="ViewModels\FeedEditFeedViewModel.cs" />
     <Compile Include="ViewModels\FeedAddFeedViewModel.cs" />
+    <Compile Include="ViewModels\FeedMixWidgetViewModel.cs" />
     <Compile Include="ViewModels\FeedsIndexViewModel.cs" />
     <Compile Include="ViewModels\FeedCreateViewModel.cs" />
     <Compile Include="ViewModels\FeedEditViewModel.cs" />
@@ -142,9 +154,12 @@
     <Content Include="Views\Admin\AddFeed.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="placement.info" />
     <None Include="Properties\PublishProfiles\File.pubxml" />
     <Content Include="Views\EditorTemplates\Parts\Feed.EditFeed.cshtml" />
     <Content Include="Views\Admin\EditFeed.cshtml" />
+    <Content Include="Views\Parts\FeedMixWidget.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\FeedMixWidget.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

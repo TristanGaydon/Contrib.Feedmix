@@ -1,0 +1,14 @@
+﻿.collapsibleList li{
+  list-style-image:url('images/rss.gif');
+  cursor:auto;
+}
+
+li.collapsibleListOpen{
+  list-style-image:url('images/button-open.png');
+  cursor:pointer;
+}
+
+li.collapsibleListClosed{
+  list-style-image:url('images/button-closed.png');
+  cursor:pointer;
+}

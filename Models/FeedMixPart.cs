@@ -33,7 +33,7 @@ namespace DeftIndustries.FeedMix.Models
 
         public IList<FeedPart> Feeds
         {
-            get { return _feeds.Value; }
+            get { return _feeds.Value.OrderBy(f => f.DisplayName).ToList(); }
             set { _feeds.Value = value; }
         }
     }

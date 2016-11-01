@@ -23,14 +23,16 @@ namespace DeftIndustries.FeedMix.Services
 
     public class FeedService : IFeedService
     {
+        private readonly IRepository<FeedMixPartRecord> _feedMixRepository;
         private readonly IRepository<FeedPartRecord> _feedRepository;
         private readonly INotifier _notifier;
         private readonly IOrchardServices _orchardServices;
 
-        public FeedService(IRepository<FeedPartRecord> feedRepository,
+        public FeedService(IRepository<FeedMixPartRecord> feedMixRepository,
+                          IRepository<FeedPartRecord> feedRepository,
                           INotifier notifier,
-                          IOrchardServices orchardServices)
-        {
+                          IOrchardServices orchardServices) {
+            _feedMixRepository = feedMixRepository;
             _feedRepository = feedRepository;
             _notifier = notifier;
             _orchardServices = orchardServices;
@@ -41,6 +43,9 @@ namespace DeftIndustries.FeedMix.Services
         public ILogger Logger { get; set; }
         public Localizer T { get; set; }
 
+        public void GetAllFeedMixes() {
+            
+        }
 
         public void CreateFeed(FeedPartRecord feedPartRecord)
         {
@@ -103,13 +108,16 @@ namespace DeftIndustries.FeedMix.Services
                     var posts = syndicationFeed.Items.OrderByDescending(p => p.PublishDate);
                     var lastPost = posts.FirstOrDefault();
 
-                    return lastPost?.PublishDate.LocalDateTime;
+                    if(lastPost != null)
+                        return lastPost.PublishDate.LocalDateTime;
                 }
             }
             catch (Exception)
             {
                 return null;
             }
+
+            return null;
         }
 
         public SyndicationFeed GetFeedMix(string friendlyFeedName)

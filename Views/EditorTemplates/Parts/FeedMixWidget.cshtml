@@ -1,0 +1,15 @@
+﻿@using DeftIndustries.FeedMix.Models
+@model DeftIndustries.FeedMix.ViewModels.FeedMixWidgetViewModel
+
+<fieldset>
+    <div>
+        @Html.LabelFor(m => m.FeedMixId, T("For FeedMix"))
+        <select id="@Html.FieldIdFor(m => m.FeedMixId)" name="@Html.FieldNameFor(m => m.FeedMixId)">
+            @foreach (FeedMixPart feedMix in Model.FeedMixes)
+            {
+                @Html.SelectOption(Model.FeedMixId, feedMix.ContentItem.Id, feedMix.Title)
+            }
+        </select>
+        <span class="hint">@T("Select which feedmix you want to display the rss feeds for")</span>
+    </div>
+</fieldset>
