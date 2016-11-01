@@ -1,4 +1,4 @@
-namespace DeftIndustries.FeedMix.ViewModels
+namespace Contrib.FeedMix.ViewModels
 {
     using System;
     using System.ComponentModel.DataAnnotations;

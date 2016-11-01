@@ -1,5 +1,5 @@
-@using DeftIndustries.FeedMix.ViewModels
-@model DeftIndustries.FeedMix.ViewModels.FeedsIndexViewModel
+@using Contrib.FeedMix.ViewModels
+@model Contrib.FeedMix.ViewModels.FeedsIndexViewModel
 
 @{
     var userIndex = 0;
@@ -10,34 +10,41 @@
 @using (Html.BeginFormAntiForgeryPost())
 {
     @Html.ValidationSummary()
-    <div class="manage">@Html.ActionLink(T("Add a new feed").ToString(), "Create", new { }, new { @class = "button primaryAction" })</div>
+    <div class="manage">@Html.ActionLink(T("Add a new feed mix").ToString(), "Create", new { }, new { @class = "button primaryAction" })</div>
 
-    <fieldset>
-        <table class="items">
-            <thead>
-                <tr>
-                    <th scope="col"><input type="checkbox" class="check-all" /></th>
-                    <th scope="col">@T("Name")</th>
-                    <th scope="col">@T("Path")</th>
-                    <th scope="col">@T("Actions")</th>
-                </tr>
-            </thead>
-            @foreach (var feed in Model.Feeds)
-            {
-                <tr>
-                    <td></td>
-                    <td>@Html.ActionLink(feed.FeedMix.Title, "Edit", new {feed.FeedMix.Id})</td>
-                    <td>@Html.ActionLink(feed.FeedMix.Path, "Index", "Feed", new { area = "", id = feed.FeedMix.Path }, null)</td>
-                    <td>
-                        @Html.ActionLink(T("Edit").ToString(), "Edit", new { feed.FeedMix.Id }) |
-                        @Html.ActionLink(T("Delete").ToString(), "Delete", new { feed.FeedMix.Id }, new { itemprop = "RemoveUrl UnsafeUrl" })
-                    </td>
-                </tr>
-                userIndex++;
-            }
-        </table>
+     if (Model.Feeds.Count == 0)
+     {
+         <div class="message info">@T("No feed mixes have been created. Add a new feed mix to start.")</div>
+     }
+     else
+     {
+         <fieldset>
+             <table class="items">
+                 <thead>
+                 <tr>
+                     <th scope="col"><input type="checkbox" class="check-all"/></th>
+                     <th scope="col">@T("Name")</th>
+                     <th scope="col">@T("Path")</th>
+                     <th scope="col">@T("Actions")</th>
+                 </tr>
+                 </thead>
+                 @foreach (var feed in Model.Feeds)
+                 {
+                     <tr>
+                         <td></td>
+                         <td>@Html.ActionLink(feed.FeedMix.Title, "Edit", new {feed.FeedMix.Id})</td>
+                         <td>@Html.ActionLink(feed.FeedMix.Path, "Index", "Feed", new {area = "", id = feed.FeedMix.Path}, null)</td>
+                         <td>
+                             @Html.ActionLink(T("Edit").ToString(), "Edit", new {feed.FeedMix.Id}) |
+                             @Html.ActionLink(T("Delete").ToString(), "Delete", new {feed.FeedMix.Id}, new {itemprop = "RemoveUrl UnsafeUrl"})
+                         </td>
+                     </tr>
+                     userIndex++;
+                 }
+             </table>
 
-        @Display(Model.Pager)
+             @Display(Model.Pager)
 
-    </fieldset>
+         </fieldset>
+     }
 } 

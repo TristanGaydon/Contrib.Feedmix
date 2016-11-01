@@ -5,7 +5,7 @@ using System.Web;
 using Orchard.ContentManagement.Records;
 using Orchard.Data.Conventions;
 
-namespace DeftIndustries.FeedMix.Models
+namespace Contrib.FeedMix.Models
 {
     public class FeedMixPartRecord : ContentPartRecord
     {

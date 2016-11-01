@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DeftIndustries.FeedMix.ViewModels {
+namespace Contrib.FeedMix.ViewModels {
     public class FeedCreateViewModel  {
         [Required]
         public string Title { get; set; }

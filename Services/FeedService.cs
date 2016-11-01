@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Xml;
-using DeftIndustries.FeedMix.Models;
+using Contrib.FeedMix.Models;
 using Orchard;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
@@ -15,7 +15,7 @@ using Orchard.Tags.Services;
 using Orchard.UI.Notify;
 using System.Linq;
 
-namespace DeftIndustries.FeedMix.Services
+namespace Contrib.FeedMix.Services
 {
     using System.Net;
     using System.Xml.Linq;

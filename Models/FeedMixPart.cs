@@ -3,7 +3,7 @@ using Orchard.ContentManagement;
 using Orchard.Security;
 using System.Linq;
 
-namespace DeftIndustries.FeedMix.Models
+namespace Contrib.FeedMix.Models
 {
     using Orchard.ContentManagement.Utilities;
 

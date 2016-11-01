@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Linq;
-using DeftIndustries.FeedMix.ViewModels;
+using Contrib.FeedMix.ViewModels;
 using Orchard.ContentManagement;
 using Orchard.Tags.Services;
 
-namespace DeftIndustries.FeedMix.Drivers
+namespace Contrib.FeedMix.Drivers
 {
     using Models;
     using Orchard.ContentManagement.Drivers;

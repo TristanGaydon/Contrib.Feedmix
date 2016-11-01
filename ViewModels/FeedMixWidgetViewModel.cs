@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using DeftIndustries.FeedMix.Models;
+using Contrib.FeedMix.Models;
 
-namespace DeftIndustries.FeedMix.ViewModels
+namespace Contrib.FeedMix.ViewModels
 {
     public class FeedMixWidgetViewModel
     {

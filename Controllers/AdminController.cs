@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using System.Web.Mvc;
-using DeftIndustries.FeedMix.Models;
-using DeftIndustries.FeedMix.ViewModels;
+using Contrib.FeedMix.Models;
+using Contrib.FeedMix.ViewModels;
 using Orchard;
 using Orchard.DisplayManagement;
 using Orchard.Localization;
@@ -11,7 +11,7 @@ using Orchard.Tags.Services;
 using Orchard.UI.Notify;
 using System.Linq;
 
-namespace DeftIndustries.FeedMix.Controllers
+namespace Contrib.FeedMix.Controllers
 {
     [ValidateInput(false)]
     public class AdminController : Controller, IUpdateModel {

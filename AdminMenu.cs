@@ -1,7 +1,7 @@
 ﻿using Orchard.Localization;
 using Orchard.UI.Navigation;
 
-namespace DeftIndustries.FeedMix
+namespace Contrib.FeedMix
 {
     public class AdminMenu : INavigationProvider
     {
@@ -29,7 +29,7 @@ namespace DeftIndustries.FeedMix
 
                     .Caption(T("Feeds"))
                     .Position("2")
-                    .Action("Index", "Admin", new { area = "DeftIndustries.FeedMix" })
+                    .Action("Index", "Admin", new { area = "Contrib.FeedMix" })
                 );
         }
     }

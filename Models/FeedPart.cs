@@ -1,4 +1,4 @@
-﻿namespace DeftIndustries.FeedMix.Models
+﻿namespace Contrib.FeedMix.Models
 {
     using System;
     using Orchard.ContentManagement;

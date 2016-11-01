@@ -2,7 +2,7 @@
 using Orchard.Core.Contents.Extensions;
 using Orchard.Data.Migration;
 
-namespace DeftIndustries.FeedMix
+namespace Contrib.FeedMix
 {
     using Models;
     using Orchard.Core.Common.Models;

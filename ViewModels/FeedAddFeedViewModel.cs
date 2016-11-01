@@ -1,4 +1,4 @@
-namespace DeftIndustries.FeedMix.ViewModels
+namespace Contrib.FeedMix.ViewModels
 {
     using System.ComponentModel.DataAnnotations;
 
@@ -10,10 +10,8 @@ namespace DeftIndustries.FeedMix.ViewModels
         [Required]
         public string WebsiteUrl { get; set; }
 
-        [Required]
         public string Author { get; set; }
 
-        [Required]
         public string Title { get; set; }    
     }
 }

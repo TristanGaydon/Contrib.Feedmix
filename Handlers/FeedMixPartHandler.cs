@@ -1,4 +1,4 @@
-﻿namespace DeftIndustries.FeedMix.Handlers
+﻿namespace Contrib.FeedMix.Handlers
 {
     using System.Collections.Generic;
     using System.Linq;

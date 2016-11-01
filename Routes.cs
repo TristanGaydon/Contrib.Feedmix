@@ -10,16 +10,16 @@ namespace Orchard.Core.Feeds.Rss {
                              new RouteDescriptor {
                                                      Priority = 20,
                                                      Route = new Route(
-                                                         "DeftIndustries.feedmix/feed/{id}",
+                                                         "Contrib.feedmix/feed/{id}",
                                                          new RouteValueDictionary {
-                                                                                      {"area", "DeftIndustries.feedmix"},
+                                                                                      {"area", "Contrib.feedmix"},
                                                                                       {"controller", "Feed"},
                                                                                       {"action", "Index"},
                                                                                       {"id", UrlParameter.Optional }
                                                                                   },
                                                          new RouteValueDictionary(),
                                                          new RouteValueDictionary {
-                                                                                      {"area", "DeftIndustries.feedmix"}
+                                                                                      {"area", "Contrib.feedmix"}
                                                                                   },
                                                          new MvcRouteHandler())
                                                  }

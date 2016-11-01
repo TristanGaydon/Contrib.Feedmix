@@ -1,7 +1,7 @@
 namespace Orchard.Tags.Services
 {
     using System.ServiceModel.Syndication;
-    using DeftIndustries.FeedMix.Models;
+    using Contrib.FeedMix.Models;
     using ContentManagement;
     using System;
 

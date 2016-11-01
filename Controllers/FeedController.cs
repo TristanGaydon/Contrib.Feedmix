@@ -10,7 +10,7 @@ using Orchard.DisplayManagement;
 using Orchard.Localization;
 using Orchard.Tags.Services;
 
-namespace DeftIndustries.FeedMix.Controllers
+namespace Contrib.FeedMix.Controllers
 {
     [ValidateInput(false)]
     public class FeedController : Controller

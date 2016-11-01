@@ -1,4 +1,4 @@
-﻿namespace DeftIndustries.FeedMix.Handlers
+﻿namespace Contrib.FeedMix.Handlers
 {
     using Models;
     using Orchard.ContentManagement.Handlers;
