@@ -17,7 +17,9 @@ using System.Linq;
 
 namespace Contrib.FeedMix.Services
 {
+    using System.Collections.Concurrent;
     using System.Net;
+    using System.Threading.Tasks;
     using System.Xml.Linq;
     using NHibernate.Hql.Ast.ANTLR.Util;
 
@@ -123,14 +125,13 @@ namespace Contrib.FeedMix.Services
         public SyndicationFeed GetFeedMix(string friendlyFeedName)
         {
             SyndicationFeed mainFeed = new SyndicationFeed();
-
-
             FeedMixPart feedMixMix = this.GetRssFeeds(friendlyFeedName);
 
             if(feedMixMix == null)
                 return mainFeed;
 
-            foreach (var feed in feedMixMix.Feeds)
+            var feeds = new ConcurrentBag<IEnumerable<SyndicationItem>>();
+            Parallel.ForEach(feedMixMix.Feeds, feed =>
             {
                 try
                 {
@@ -146,11 +147,11 @@ namespace Contrib.FeedMix.Services
                         syndicationFeed = SyndicationFeed.Load(reader);
                         syndicationFeed.Id = feed.Title;
 
-                        
+
                         foreach (var item in syndicationFeed.Items)
                         {
                             const string dc = "http://purl.org/dc/elements/1.1/";
-                            
+
                             var creator = item.ElementExtensions.Where(p => p.OuterName == "creator").FirstOrDefault();
 
                             if (creator == null)
@@ -162,28 +163,31 @@ namespace Contrib.FeedMix.Services
                             {
                                 item.Authors.Add(new SyndicationPerson(creator.GetObject<string>()));
                             }
-                            else if(creator == null && item.Authors.Count == 0)
+                            else if (creator == null && item.Authors.Count == 0)
                             {
                                 item.Authors.Add(new SyndicationPerson(feed.Author));
                             }
 
-                            if(string.IsNullOrEmpty(item.Authors.First().Email))
+                            if (string.IsNullOrEmpty(item.Authors.First().Email))
                             {
                                 item.Authors.First().Email = item.Authors.First().Name;
                             }
                         }
 
-                        SyndicationFeed tempFeed = new SyndicationFeed(
-                            mainFeed.Items.Union(syndicationFeed.Items).OrderByDescending(u => u.PublishDate));
-
-                        mainFeed = tempFeed;
+                        feeds.Add(syndicationFeed.Items);
                     }
                 }
                 catch (Exception)
                 {
-                    
+
                 }
-            }
+            });
+
+            var feedItems = new List<SyndicationItem>();
+            feeds.ToList().ForEach(f => feedItems.AddRange(f));
+            feedItems = feedItems.OrderByDescending(u => u.PublishDate).Take(100).ToList();
+
+            mainFeed = new SyndicationFeed(feedItems);
             mainFeed.Title = new TextSyndicationContent(feedMixMix.Title);
             return mainFeed;
         }
