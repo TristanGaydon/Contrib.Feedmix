@@ -1,6 +1,10 @@
 # Feedmix Orchard Module
 
-An Orchard module for aggregating RSS feeds.
+An Orchard module for aggregating RSS feeds. Currently built against Orchard v.1.10.1
+
+Of course there are lots of free online services that will combine RSS feeds (e.g. [rssmix](http://www.rssmix.com), [ChimpFeedr](http://www.chimpfeedr.com)) however these "one time only" affairs, where a combined feed can be created but there is no way to subsequently edit that feed to add new feeds or to remove feeds. There are paid services ([RssMixer](https://rssmixer.com/), [FeedInformer](http://feed.informer.com/) etc) available, but they all placed limitations on the number of combined feeds and source feeds.
+
+If you run your own Orchard site and want to take control of your own RSS feed aggregation you may find this useful.
 
 ## How to use:
 
